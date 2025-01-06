@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación web para el cálculo de ganancias y pérdidas en Binance P2P</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Aplicación web para el cálculo de ganancias y pérdidas en Binance P2P</h1>
+        
+        <div class="sections-contenedor">
+            <!-- Sección de Compra de USDT -->
+            <div class="section-contenedor" id="compra-section">
+                <h2 style="color: red;">Compra de USDT</h2>
+                <div class="section" id="compra">
+                    <form id="compraForm">
+                        <label for="cantidadVeS">Cantidad de VeS Disponibles:</label>
+                        <input type="number" id="cantidadVeS" required>
+
+                        <label for="tasaCompra">Tasa de compra (VeS):</label>
+                        <input type="number" id="tasaCompra" required>
+
+                        <label for="verificacionCompra">Verificación:</label>
+                        <select id="verificacionCompra" required>
+                            <option value="0.002">No Verificado</option>
+                            <option value="0.001">Verificado</option>
+                        </select>
+                        
+                        <button type="button" onclick="calcularCompra()">Calcular</button>
+                    </form>
+                    <div id="resultadosCompra">
+                        <p>USDT Comprados: <span id="usdtComprados"></span></p>
+                        <p>Comisión en VeS: <span id="comisionVeS"></span></p>
+                        <p>Comisión en USDT: <span id="comisionUSDT"></span></p>
+                        <p>Precio Real de Compra: <span id="precioRealCompra"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Precios sugeridos de Venta -->
+            <div class="section-contenedor" id="precios-section">
+                <h2 style="color: blue;">Precios sugeridos de Venta</h2>
+                <div class="section" id="precios">
+                    <ul id="listaPrecios"></ul>
+                </div>
+            </div>
+
+            <!-- Sección de Venta de USDT -->
+            <div class="section-contenedor" id="venta-section">
+                <h2 style="color: green;">Venta de USDT</h2>
+                <div class="section" id="venta">
+                    <form id="ventaForm">
+                        <label for="cantidadUSDT">Cantidad de USDT Disponibles:</label>
+                        <input type="number" id="cantidadUSDT" required>
+
+                        <label for="tasaVenta">Tasa de Venta (VeS):</label>
+                        <input type="number" id="tasaVenta" required>
+
+                        <label for="verificacionVenta">Verificación:</label>
+                        <select id="verificacionVenta" required>
+                            <option value="0.002">No Verificado</option>
+                            <option value="0.001">Verificado</option>
+                        </select>
+                        
+                        <button type="button" onclick="calcularVenta()">Calcular</button>
+                    </form>
+                    <div id="resultadosVenta">
+                        <p>VeS de la Venta: <span id="vesObtenidosVenta"></span></p>
+                        <p>Comisión en VeS: <span id="comisionVentaVeS"></span></p>
+                        <p>Comisión en USDT: <span id="comisionVentaUSDT"></span></p>
+                        <p>Precio Real de Venta: <span id="precioRealVenta"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-contenedor" id="resultado-section">
+            <h2>Resultado del ciclo de compra/venta</h2>
+            <div class="section" id="resultado">
+                <!-- Contenido de la sección de resultado -->
+            </div>
+        </div>
+
+        <!-- Nueva Sección: Progreso de BTC -->
+        <div class="section-contenedor" id="progreso-section">
+            <h2 style="color: orange;">Progreso de BTC</h2>
+            <div class="section" id="progresoBTC">
+                <form id="progresoBTCForm">
+                    <label for="cantidadBTC">Cantidad de BTC que llevas:</label>
+                    <input type="number" id="cantidadBTC" step="0.00000001" required>
+                    <button type="button" onclick="calcularProgreso()">Calcular Progreso</button>
+                    
+                    <label for="volumenTrading">Volumen de Trading:</label>
+                    <input type="number" id="volumenTrading" step="0.00000001" required>
+                    <button type="button" onclick="calcularVolumenTrading()">Calcular Volumen de Trading</button>
+
+                    <label for="volumen30dias">Volumen de Trading en 30 Días:</label>
+                    <input type="number" id="volumen30dias" step="0.00000001" required>
+                    <button type="button" onclick="calcularVolumen30Dias()">Calcular Volumen de Trading en 30 Días</button>
+
+                    <label for="ordenesCompletadasHistorico">Órdenes Completadas (Histórico):</label>
+                    <input type="number" id="ordenesCompletadasHistorico" required>
+                    <button type="button" onclick="calcularOrdenesCompletadasHistorico()">Calcular Órdenes Completadas (Histórico)</button>
+
+                    <label for="ordenes30dias">Órdenes Completadas en 30 Días:</label>
+                    <input type="number" id="ordenes30dias" required>
+                    <button type="button" onclick="calcularOrdenes30Dias()">Calcular Órdenes Completadas en 30 Días</button>
+
+                    <label for="antiguedadCuenta">Antigüedad de la Cuenta (meses):</label>
+                    <input type="number" id="antiguedadCuenta" required>
+                    <button type="button" onclick="calcularAntiguedadCuenta()">Calcular Antigüedad de la Cuenta</button>
+
+                    <label for="tasaFinalizacion30dias">Tasa de Finalización en los Últimos 30 Días (%):</label>
+                    <input type="number" id="tasaFinalizacion30dias" step="0.01" required>
+                    <button type="button" onclick="calcularTasaFinalizacion30Dias()">Calcular Tasa de Finalización en los Últimos 30 Días</button>
+                </form>
+
+                <div id="resultadosProgreso">
+                    <p>Progreso hacia 1 BTC:</p>
+                    <div class="progress-bar">
+                        <div id="barraProgresoBTC" class="progress"></div>
+                    </div>
+                    <p><span id="porcentajeProgresoBTC"></span>% completado</p>
+                    
+                    <p>Volumen de Trading:</p>
+                    <div class="progress-bar">
+                        <div id="barraVolumenTrading" class="progress"></div>
+                    </div>
+                    <p><span id="porcentajeVolumenTrading"></span>% completado</p>
+
+                    <p>Volumen de Trading en 30 Días:</p>
+                    <div class="progress-bar">
+                        <div id="barraVolumen30Dias" class="progress"></div>
+                    </div>
+                    <p><span id="porcentajeVolumen30Dias"></span>% completado</p>
+
+                    <p>Órdenes Completadas (Histórico):</p>
+                    <div class="progress-bar">
+                        <div id="barraOrdenesCompletadasHistorico" class="progress"></div>
+                    </div>
+                    <p><span id="porcentajeOrdenesCompletadasHistorico"></span>% completado</p>
+
+                    <p>Órdenes Completadas en 30 Días:</p>
+                    <div class="progress-bar">
+                        <div id="barraOrdenes30Dias" class="progress"></div>
+                    </div>
+                    <p><span id="porcentajeOrdenes30Dias"></span>% completado</p>
+
+                    <p>Antigüedad de la Cuenta:</p>
+                    <div class="progress-bar">
+                        <div id="barraAntiguedadCuenta" class="progress"></div>
+                    </div>
+                    <p><span id="porcentajeAntiguedadCuenta"></span>% completado</p>
+
+                    <p>Tasa de Finalización en los Últimos 30 Días:</p>
+                    <div class="progress-bar">
+                        <div id="barraTasaFinalizacion30Dias" class="progress"></div>
+                    </div>
+                    <p><span id="porcentajeTasaFinalizacion30Dias"></span>% completado</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.sections-contenedor {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.section-contenedor {
+    text-align: center;
+}
+
+#compra-section {
+    grid-column: 1;
+}
+
+#precios-section {
+    grid-column: 2;
+}
+
+#venta-section {
+    grid-column: 3;
+}
+
+#resultado-section {
+    grid-column: 1 / span 3;
+}
+
+#progreso-section {
+    grid-column: 1 / span 3;
+}
+
+.section {
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin: 5px 0;
+    text-align: left;
+    width: 100%;
+}
+
+input, select {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#precios, #resultado {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+#resultadosCompra p, #resultadosVenta p, #resultadosProgreso p {
+    margin: 5px 0;
+}
+
+#resultadosCompra, #resultadosVenta, #resultadosProgreso {
+    display: none;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress {
+    height: 20px;
+    background-color: #007BFF;
+    width: 0;
+    transition: width 0.4s;
+}

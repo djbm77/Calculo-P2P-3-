@@ -1,3 +1,4 @@
+/* Estilo global */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -8,6 +9,7 @@ body {
     padding: 20px;
 }
 
+/* Estilo del contenedor principal */
 .container {
     background-color: #fff;
     padding: 20px;
@@ -16,21 +18,30 @@ body {
     width: 80%;
 }
 
+/* Estilo del título principal */
 h1 {
     margin-bottom: 20px;
     text-align: center;
 }
 
+/* Estilo del contenedor de secciones */
 .sections-contenedor {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
 }
 
+/* Estilo del título de la sección de compra */
+.titulo-compra { 
+    color: red; 
+}
+
+/* Estilo del contenedor de cada sección */
 .section-contenedor {
     text-align: center;
 }
 
+/* Estilo específico de las secciones */
 #compra-section {
     grid-column: 1;
 }
@@ -51,6 +62,7 @@ h1 {
     grid-column: 1 / span 3;
 }
 
+/* Estilo de las secciones */
 .section {
     padding: 20px;
     border: 1px solid #000;
@@ -59,18 +71,21 @@ h1 {
     box-sizing: border-box;
 }
 
+/* Estilo de los formularios */
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* Estilo de las etiquetas */
 label {
     margin: 5px 0;
     text-align: left;
     width: 100%;
 }
 
+/* Estilo de los campos de entrada y select */
 input, select {
     padding: 10px;
     margin-bottom: 10px;
@@ -80,6 +95,7 @@ input, select {
     max-width: 300px;
 }
 
+/* Estilo de los botones */
 button {
     padding: 10px;
     background-color: #007BFF;
@@ -89,12 +105,15 @@ button {
     cursor: pointer;
     width: 100%;
     max-width: 300px;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Estilo de los contenedores de resultados */
 #precios, #resultado {
     text-align: center;
     margin-top: 20px;
@@ -111,6 +130,7 @@ button:hover {
     display: none;
 }
 
+/* Estilo de las barras de progreso */
 .progress-bar {
     width: 100%;
     background-color: #e0e0e0;

@@ -1,3 +1,4 @@
+// Función para calcular la compra de USDT
 function calcularCompra() {
     const cantidadVeS = parseFloat(document.getElementById('cantidadVeS').value);
     const tasaCompra = parseFloat(document.getElementById('tasaCompra').value);
@@ -22,7 +23,7 @@ function calcularCompra() {
 
     document.getElementById('resultadosCompra').style.display = 'block';
 
-    // Generar y mostrar las sugerencias de precios de venta
+    // Bloque para generar y mostrar las sugerencias de precios de venta
     const listaPrecios = document.getElementById('listaPrecios');
     listaPrecios.innerHTML = ''; // Limpiar la lista anterior
 
@@ -48,6 +49,7 @@ function calcularCompra() {
     }
 }
 
+// Función para calcular la venta de USDT
 function calcularVenta() {
     const cantidadUSDT = parseFloat(document.getElementById('cantidadUSDT').value);
     const tasaVenta = parseFloat(document.getElementById('tasaVenta').value);
@@ -72,6 +74,7 @@ function calcularVenta() {
     document.getElementById('resultadosVenta').style.display = 'block';
 }
 
+// Función para calcular el progreso hacia 1 BTC
 function calcularProgreso() {
     const cantidadBTC = parseFloat(document.getElementById('cantidadBTC').value);
     const maxBTC = 1.0;
@@ -89,6 +92,7 @@ function calcularProgreso() {
     document.getElementById('resultadosProgreso').style.display = 'block';
 }
 
+// Función para calcular el volumen de trading total
 function calcularVolumenTrading() {
     const volumenTrading = parseFloat(document.getElementById('volumenTrading').value);
     const maxVolumenTrading = 2.0;
@@ -106,6 +110,7 @@ function calcularVolumenTrading() {
     document.getElementById('resultadosProgreso').style.display = 'block';
 }
 
+// Función para calcular el volumen de trading en los últimos 30 días
 function calcularVolumen30Dias() {
     const volumen30dias = parseFloat(document.getElementById('volumen30dias').value);
     const maxVolumen30Dias = 1.0;
@@ -123,6 +128,7 @@ function calcularVolumen30Dias() {
     document.getElementById('resultadosProgreso').style.display = 'block';
 }
 
+// Función para calcular las órdenes completadas (histórico)
 function calcularOrdenesCompletadasHistorico() {
     const ordenesCompletadasHistorico = parseFloat(document.getElementById('ordenesCompletadasHistorico').value);
     const maxOrdenesCompletadasHistorico = 1000;
@@ -140,6 +146,7 @@ function calcularOrdenesCompletadasHistorico() {
     document.getElementById('resultadosProgreso').style.display = 'block';
 }
 
+// Función para calcular las órdenes completadas en los últimos 30 días
 function calcularOrdenes30Dias() {
     const ordenes30dias = parseFloat(document.getElementById('ordenes30dias').value);
     const maxOrdenes30Dias = 500;
@@ -157,6 +164,7 @@ function calcularOrdenes30Dias() {
     document.getElementById('resultadosProgreso').style.display = 'block';
 }
 
+// Función para calcular la antigüedad de la cuenta
 function calcularAntiguedadCuenta() {
     const antiguedadCuenta = parseFloat(document.getElementById('antiguedadCuenta').value);
     const maxAntiguedadCuenta = 6;
@@ -166,14 +174,15 @@ function calcularAntiguedadCuenta() {
         return;
     }
 
-   const porcentajeAntiguedadCuenta = (antiguedadCuenta / maxAntiguedadCuenta) * 100;
+    const porcentajeAntiguedadCuenta = (antiguedadCuenta / maxAntiguedadCuenta) * 100;
 
-document.getElementById('barraAntiguedadCuenta').style.width = `${porcentajeAntiguedadCuenta}%`;
-document.getElementById('porcentajeAntiguedadCuenta').textContent = porcentajeAntiguedadCuenta.toFixed(3);
+    document.getElementById('barraAntiguedadCuenta').style.width = `${porcentajeAntiguedadCuenta}%`;
+    document.getElementById('porcentajeAntiguedadCuenta').textContent = porcentajeAntiguedadCuenta.toFixed(3);
 
-document.getElementById('resultadosProgreso').style.display = 'block';
+    document.getElementById('resultadosProgreso').style.display = 'block';
 }
 
+// Función para calcular la tasa de finalización en los últimos 30 días
 function calcularTasaFinalizacion30Dias() {
     const tasaFinalizacion30dias = parseFloat(document.getElementById('tasaFinalizacion30dias').value);
     const minTasaFinalizacion30Dias = 90;
